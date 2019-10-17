@@ -1,5 +1,5 @@
 # CS224n-NLP
-![](cs224n.png)<img src="cs224n.png" height="120">
+<img src="cs224n.png" height="400">
 
 NLP Class from Stanford
 
