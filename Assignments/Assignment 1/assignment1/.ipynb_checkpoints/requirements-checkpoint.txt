@@ -1,4 +1,3 @@
-matplotlib
-scipy
-numpy
-sklearn
+version https://git-lfs.github.com/spec/v1
+oid sha256:f275ba55e94a56fc6a1fd01cb180b678b14f216eef180b55893d0a03085f1983
+size 31
