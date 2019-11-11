@@ -43,12 +43,21 @@ def forward_backward_prop(X, labels, params, dimensions):
     z1 = np.matmul(X, W1) + b1
     h = sigmoid(z1)
     z2 = np.matmul(h, W2) + b2
-    y = softmax(z2)
-    cost = labels - y
+    y_hat = softmax(z2)
+    cost = -np.sum(labels * np.log(y_hat))
     #raise NotImplementedError
     ### END YOUR CODE
 
     ### YOUR CODE HERE: backward propagation
+    gradb2 = y_hat - labels
+    gradW2 = 
+    gradb1 = 
+    gradW1 = 
+    
+    b2 = b2 - gradb2
+    W2 = W2 _ gradW2
+    b1 = b1 - gradb1
+    W1 = W1 - gradW1
     raise NotImplementedError
     ### END YOUR CODE
 

@@ -31,7 +31,9 @@ def softmax(x):
     if len(x.shape) > 1:
         # Matrix
         ### YOUR CODE HERE
-        normalized_x = x - np.amax(x, axis=1)
+        print(x.shape)
+        print(np.amax(x, axis=1)[np.newaxis].T.shape)
+        normalized_x = x - np.amax(x, axis=1)[np.newaxis].T
         exp_x = np.exp(normalized_x)
         s_sum_rows = np.sum(exp_x, axis=0)
         x = np.divide(exp_x, s_sum_rows)
