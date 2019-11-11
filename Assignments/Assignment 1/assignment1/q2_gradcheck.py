@@ -39,8 +39,8 @@ def gradcheck_naive(f, x):
         ### YOUR CODE HERE:
         random.setstate(rndstate)
         print(x[ix])
-        print(f(x[ix]+h))x
-        numgrad = (f(x[ix]+h) - f(x[ix]-h) )/(2*h)
+        print(f(x[ix]+h)[0])
+        numgrad = (f(x[ix]+h)[0] - f(x[ix]-h)[0] )/(2*h)
         #raise NotImplementedError
         ### END YOUR CODE
 
