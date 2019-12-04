@@ -24,6 +24,18 @@ def softmax(x):
     """
 
     ### YOUR CODE HERE
+
+    # Let's shift x by x_max
+    # shape(1, n_features)
+    x_max = tf.reduce_max(x, axis=0)
+    # shape(1, n_features)
+    x2 = x - x_max
+    exp_x2 = tf.exp(x2)
+
+    denum = tf.reduce_sum(exp_x2, axis= 0, keep_dims=True)
+
+    out = exp_x2 / denum
+
     ### END YOUR CODE
 
     return out
