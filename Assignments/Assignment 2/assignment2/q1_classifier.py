@@ -132,7 +132,7 @@ class SoftmaxModel(Model):
         """
         ### YOUR CODE HERE
 
-        
+        loss = cross_entropy_loss(self.labels_placeholder, pred)
 
         ### END YOUR CODE
         return loss
