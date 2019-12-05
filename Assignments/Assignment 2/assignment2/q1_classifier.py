@@ -115,7 +115,7 @@ class SoftmaxModel(Model):
         W = tf.Variable(tf.zeros([n_features, n_classes]))
         b = tf.Variable(tf.zeros([batch_size, n_classes]))
 
-        pred = softmax(x*W + b)
+        pred = softmax(tf.linalg.matmul(x, W) + b)
 
         ### END YOUR CODE
         return pred
