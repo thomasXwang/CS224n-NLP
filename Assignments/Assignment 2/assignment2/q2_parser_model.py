@@ -119,9 +119,13 @@ class ParserModel(Model):
         """
         ### YOUR CODE HERE
 
+        n_features = self.config.n_features
+        print(self.pretrained_embeddings.shape[1])
+        embedding_size = self.pretrained_embeddings.shape[1]
+
         pretrained_embs = tf.Variable(self.pretrained_embeddings)
         embeddings = tf.nn.embedding_lookup(pretrained_embs, self.input_placeholder)
-        embeddings = tf.reshape(embeddings, [None, -1])
+        embeddings = tf.reshape(embeddings, [-1, n_features * embedding_size])
 
         ### END YOUR CODE
         return embeddings
@@ -150,7 +154,7 @@ class ParserModel(Model):
         x = self.add_embedding()
         ### YOUR CODE HERE
 
-        
+
 
         ### END YOUR CODE
         return pred
@@ -248,7 +252,7 @@ def main(debug=True):
         parser.model = model
         init_op = tf.global_variables_initializer()
         saver = None if debug else tf.train.Saver()
-        print "(took {:.2f} seconds\n".format(time.time() - start))
+        print ("took {:.2f} seconds\n".format(time.time() - start))
     graph.finalize()
 
     with tf.Session(graph=graph) as session:
