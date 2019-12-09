@@ -95,12 +95,14 @@ class Model(object):
 
         Args:
             sess: tf.Session()
-            input_batch: np.ndarray of shape (n_samples, n_features)
+            inputs_batch: np.ndarray of shape (n_samples, n_features)
         Returns:
             predictions: np.ndarray of shape (n_samples, n_classes)
         """
         feed = self.create_feed_dict(inputs_batch)
+        print("INPUT: ", inputs_batch.shape, inputs_batch)
         predictions = sess.run(self.pred, feed_dict=feed)
+        print("predictions: ", predictions)
         return predictions
 
     def build(self):

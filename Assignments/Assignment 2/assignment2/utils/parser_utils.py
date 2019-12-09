@@ -272,6 +272,7 @@ class ModelWrapper(object):
         mb_x = np.array(mb_x).astype('int32')
         mb_l = [self.parser.legal_labels(p.stack, p.buffer) for p in partial_parses]
         pred = self.parser.model.predict_on_batch(self.parser.session, mb_x)
+        print(pred)
         pred = np.argmax(pred + 10000 * np.array(mb_l).astype('float32'), 1)
         pred = ["S" if p == 2 else ("LA" if p == 0 else "RA") for p in pred]
         return pred
