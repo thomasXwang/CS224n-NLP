@@ -1,8 +1,12 @@
 <component name="ProjectDictionaryState">
   <dictionary name="twang">
     <words>
+      <w>deps</w>
+      <w>minibatch</w>
       <w>minibatches</w>
+      <w>pred</w>
       <w>pretrained</w>
+      <w>prog</w>
     </words>
   </dictionary>
 </component>

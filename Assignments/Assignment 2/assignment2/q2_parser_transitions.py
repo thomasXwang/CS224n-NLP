@@ -43,6 +43,7 @@ class PartialParse(object):
             self.buffer.pop(0)
 
         else:
+            print(self.stack)
             first = self.stack[-1]
             second = self.stack[-2]
             if transition == "LA":
@@ -95,8 +96,10 @@ def minibatch_parse(sentences, model, batch_size):
     while len(unfinished_parses) != 0:
         mini_batch_parses = unfinished_parses[:batch_size]
         transitions = model.predict(mini_batch_parses)
+        print(transitions)
 
         for partial_parse, transition in zip(mini_batch_parses, transitions):
+            print(transition)
             partial_parse.parse_step(transition)
             if len(partial_parse.buffer) == 0 and len(partial_parse.stack) == 1:
                 unfinished_parses.remove(partial_parse)
